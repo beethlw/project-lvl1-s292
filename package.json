@@ -1,14 +1,17 @@
 {
   "name": "brain-games-beeth-test",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "test",
   "main": "dist/index.js",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/index.js"
   },
   "files": [
     "dist"
   ],
+  "dependencies": {
+    "readline-sync": "*"
+  },
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
