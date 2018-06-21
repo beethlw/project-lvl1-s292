@@ -1,13 +1,14 @@
 import readlineSync from 'readline-sync';
 
+const isEven = number => ((number % 2 === 0) ? 'yes' : 'no');
+const numOfQuest = 3;
+const maxNumber = 100;
 export const playEven = () => {
-  const numOfQuest = 3;
-  const maxNumber = 100;
   for (let count = 0; count < numOfQuest; count += 1) {
-    const number = Math.floor((Math.random() * (maxNumber + 1)) + 1);
-    console.log(`Question: ${number}`);
+    const question = Math.floor((Math.random() * (maxNumber + 1)) + 1);
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer:');
-    const rightAnswer = (number % 2 === 0) ? 'yes' : 'no';
+    const rightAnswer = isEven(question);
     if (answer !== rightAnswer) {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
       return false;
