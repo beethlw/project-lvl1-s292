@@ -8,19 +8,26 @@ const maxNumber = 100;
 const getGcd = (a, b) => {
   if (a === 0) {
     return b;
-  } else if (b === 0) {
+  }
+  if (b === 0) {
     return a;
-  } else if (a === b) {
+  }
+  if (a === b) {
     return a;
-  } else if (a === 1 || b === 1) {
+  }
+  if (a === 1 || b === 1) {
     return 1;
-  } else if (isEven(a) && isEven(b)) {
+  }
+  if (isEven(a) && isEven(b)) {
     return 2 * getGcd(a / 2, b / 2);
-  } else if (isEven(a) && (!isEven(b))) {
+  }
+  if (isEven(a) && (!isEven(b))) {
     return getGcd(a / 2, b);
-  } else if ((!isEven(a)) && isEven(b)) {
+  }
+  if ((!isEven(a)) && isEven(b)) {
     return getGcd(a, b / 2);
-  } else if (a > b) {
+  }
+  if (a > b) {
     return getGcd((a - b) / 2, b);
   }
   return getGcd((b - a) / 2, a);
@@ -29,7 +36,6 @@ const createQuestionAndRightAnswerGcd = () => {
   const a = getRandom(maxNumber);
   const b = getRandom(maxNumber);
   const question = `${a} ${b}`;
-  console.log(question);
   const rightAnswer = getGcd(a, b);
   return cons(question, rightAnswer);
 };
