@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import { cons } from 'hexlet-pairs';
 import { playGame } from '../play-game';
 import getRandom from '../random';
@@ -25,15 +24,8 @@ const createQuestionAndRightAnswerCalc = () => {
   return questionAndRightAnswer;
 };
 export const runCalc = () => {
-  console.log('Welcome to Brain Games!');
-  console.log('What is the result of the expression?\n');
-  const name = readlineSync.question('May I have your name:');
-  console.log(`Hello, ${name}!\n`);
-  if (playGame(createQuestionAndRightAnswerCalc)) {
-    console.log(`Congratulations, ${name}!`);
-  } else {
-    console.log(`Let's try again, ${name}!`);
-  }
+  const gameDescription = 'What is the result of the expression?\n';
+  playGame(gameDescription, createQuestionAndRightAnswerCalc);
 };
 
 export default runCalc;

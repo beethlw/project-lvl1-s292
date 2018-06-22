@@ -1,9 +1,8 @@
-import readlineSync from 'readline-sync';
 import { cons } from 'hexlet-pairs';
 import { playGame } from '../play-game';
 import getRandom from '../random';
+import isEven from '../even';
 
-const isEven = a => a % 2 === 0;
 const maxNumber = 100;
 const getGcd = (a, b) => {
   if (a === 0) {
@@ -40,15 +39,8 @@ const createQuestionAndRightAnswerGcd = () => {
   return cons(question, rightAnswer);
 };
 export const runGcd = () => {
-  console.log('Welcome to Brain Games!');
-  console.log('Find the greatest common divisor of given numbers.\n');
-  const name = readlineSync.question('May I have your name:');
-  console.log(`Hello, ${name}!\n`);
-  if (playGame(createQuestionAndRightAnswerGcd)) {
-    console.log(`Congratulations, ${name}!`);
-  } else {
-    console.log(`Let's try again, ${name}!`);
-  }
+  const gameDescription = 'Find the greatest common divisor of given numbers.\n';
+  playGame(gameDescription, createQuestionAndRightAnswerGcd);
 };
 
 export default runGcd;
