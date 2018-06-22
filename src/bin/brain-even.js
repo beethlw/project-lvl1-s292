@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { runEven } from '../run-even';
+import { runEven } from '../games/run-even';
 
 runEven();
