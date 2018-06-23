@@ -10,7 +10,7 @@ const makeNumber = (base, length) => {
   }
   return result;
 };
-const getRightAnswer = (number) => {
+const balanceNumber = (number) => {
   const countOfDigits = String(number).length;
   let sumOfDigits = 0;
   let temp = number;
@@ -20,11 +20,17 @@ const getRightAnswer = (number) => {
   }
   const baseNumber = Math.floor(sumOfDigits / countOfDigits);
   const lengthOfIncrement = sumOfDigits % countOfDigits;
-  return makeNumber(baseNumber, countOfDigits) + makeNumber(1, lengthOfIncrement);
+  let result = String(makeNumber(baseNumber, countOfDigits) + makeNumber(1, lengthOfIncrement));
+  let count = countOfDigits - result.length;
+  while (count > 0) {
+    result = `0${result}`;
+    count -= 1;
+  }
+  return result;
 };
 const createQuestionAndRightAnswer = () => {
   const question = getRandom(maxNumber);
-  const rightAnswer = getRightAnswer(question);
+  const rightAnswer = balanceNumber(question);
   return cons(question, rightAnswer);
 };
 export const runBalance = () => {
