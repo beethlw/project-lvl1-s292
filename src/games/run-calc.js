@@ -1,9 +1,9 @@
 import { cons } from 'hexlet-pairs';
 import { playGame } from '../play-game';
-import getRandom from '../random';
+import getRandom from '../utils';
 
 const maxNumber = 100;
-const createQuestionAndRightAnswerCalc = () => {
+const createQuestionAndRightAnswer = () => {
   const a = getRandom(maxNumber);
   const b = getRandom(maxNumber);
   const c = getRandom(3);
@@ -25,7 +25,7 @@ const createQuestionAndRightAnswerCalc = () => {
 };
 export const runCalc = () => {
   const gameDescription = 'What is the result of the expression?\n';
-  playGame(gameDescription, createQuestionAndRightAnswerCalc);
+  playGame(gameDescription, createQuestionAndRightAnswer);
 };
 
 export default runCalc;

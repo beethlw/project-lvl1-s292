@@ -1,7 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { playGame } from '../play-game';
-import getRandom from '../random';
-import isEven from '../even';
+import getRandom from '../utils';
 
 const maxNumber = 100;
 const getGcd = (a, b) => {
@@ -17,21 +16,16 @@ const getGcd = (a, b) => {
   if (a === 1 || b === 1) {
     return 1;
   }
-  if (isEven(a) && isEven(b)) {
-    return 2 * getGcd(a / 2, b / 2);
+  const min = Math.min(a, b);
+  if (Math.max(a, b) % min === 0) {
+    return min;
   }
-  if (isEven(a) && (!isEven(b))) {
-    return getGcd(a / 2, b);
+  for (let count = min / 2; count > 1; count -= 1) {
+    if (a % count === 0 && b % count === 0) return count;
   }
-  if ((!isEven(a)) && isEven(b)) {
-    return getGcd(a, b / 2);
-  }
-  if (a > b) {
-    return getGcd((a - b) / 2, b);
-  }
-  return getGcd((b - a) / 2, a);
+  return 1;
 };
-const createQuestionAndRightAnswerGcd = () => {
+const createQuestionAndRightAnswer = () => {
   const a = getRandom(maxNumber);
   const b = getRandom(maxNumber);
   const question = `${a} ${b}`;
@@ -40,7 +34,7 @@ const createQuestionAndRightAnswerGcd = () => {
 };
 export const runGcd = () => {
   const gameDescription = 'Find the greatest common divisor of given numbers.\n';
-  playGame(gameDescription, createQuestionAndRightAnswerGcd);
+  playGame(gameDescription, createQuestionAndRightAnswer);
 };
 
 export default runGcd;
