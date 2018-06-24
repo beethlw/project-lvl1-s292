@@ -3,7 +3,7 @@ import { playGame } from '../play-game';
 import getRandom from '../utils';
 
 const maxNumber = 100;
-const gameDescription = 'Is this number prime?.';
+const gameDescription = 'Is this number prime?';
 const isPrime = (num) => {
   if (num <= 1) {
     return false;
