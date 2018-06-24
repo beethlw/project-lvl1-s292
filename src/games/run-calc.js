@@ -3,6 +3,7 @@ import { playGame } from '../play-game';
 import getRandom from '../utils';
 
 const maxNumber = 100;
+const gameDescription = 'What is the result of the expression?';
 const createQuestionAndRightAnswer = () => {
   const a = getRandom(maxNumber);
   const b = getRandom(maxNumber);
@@ -23,9 +24,5 @@ const createQuestionAndRightAnswer = () => {
   }
   return questionAndRightAnswer;
 };
-export const runCalc = () => {
-  const gameDescription = 'What is the result of the expression?\n';
-  playGame(gameDescription, createQuestionAndRightAnswer);
-};
-
+export const runCalc = () => playGame(gameDescription, createQuestionAndRightAnswer);
 export default runCalc;

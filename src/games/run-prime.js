@@ -3,16 +3,18 @@ import { playGame } from '../play-game';
 import getRandom from '../utils';
 
 const maxNumber = 100;
+const gameDescription = 'Is this number prime?.';
 const isPrime = (num) => {
-  if (num === 1) {
+  if (num <= 1) {
     return false;
   }
-  let temp = Math.floor(num / 2);
-  while (temp > 1) {
-    if (num % temp === 0) {
+  if (num === 2) {
+    return true;
+  }
+  for (let count = 2; count <= Math.floor(num / 2); count += 1) {
+    if (num % count === 0) {
       return false;
     }
-    temp -= 1;
   }
   return true;
 };
@@ -21,8 +23,5 @@ const createQuestionAndRightAnswer = () => {
   const rightAnswer = isPrime(question) ? 'yes' : 'no';
   return cons(question, rightAnswer);
 };
-export const runPrime = () => {
-  const gameDescription = 'Is this number prime?.\n';
-  playGame(gameDescription, createQuestionAndRightAnswer);
-};
+export const runPrime = () => playGame(gameDescription, createQuestionAndRightAnswer);
 export default runPrime;

@@ -2,6 +2,7 @@ import { cons } from 'hexlet-pairs';
 import { playGame } from '../play-game';
 import getRandom from '../utils';
 
+const gameDescription = 'Balance the given number.';
 const maxNumber = 10000;
 const makeNumber = (base, length) => {
   let result = 0;
@@ -33,8 +34,5 @@ const createQuestionAndRightAnswer = () => {
   const rightAnswer = balanceNumber(question);
   return cons(question, rightAnswer);
 };
-export const runBalance = () => {
-  const gameDescription = 'Balance the given number.\n';
-  playGame(gameDescription, createQuestionAndRightAnswer);
-};
+export const runBalance = () => playGame(gameDescription, createQuestionAndRightAnswer);
 export default runBalance;
