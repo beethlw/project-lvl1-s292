@@ -24,7 +24,7 @@
 ## Установка
 
 ```sh
-npm install brain-games-beeth-test
+npm install -g brain-games-beeth-test
 ```
 ## Запуск игр
 
